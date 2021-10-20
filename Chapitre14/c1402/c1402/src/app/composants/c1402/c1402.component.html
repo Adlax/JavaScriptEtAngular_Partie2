@@ -1,0 +1,33 @@
+<div class="container text-center">
+  <h2>Le composant C1402</h2>
+  <hr/>
+  <div>Formulaire valide ? : {{ monFormulaire.valid }}</div>
+  <hr/>
+  <div class="row justify-content-md-center">
+    <div>
+      <form [formGroup]="monFormulaire">
+        <div class="form-group">
+          <label>Nom : </label>
+          <input type="text" class="form-control" name="nom" formControlName="leNom" [class.is-valid]="nom.valid" [class.is-invalid]="nom.invalid">
+          <div *ngIf="nom.invalid" class="alert alert-danger">Champ requis</div>
+        </div>
+        <div class="form-group">
+          <label>Couleur : </label>
+          <select name="couleur" class="form-control" formControlName="laCouleur">
+            <option>Blanc</option>
+            <option>Bleu</option>
+            <option>Noir</option>
+            <option>Rouge</option>
+            <option>Vert</option>
+          </select>
+        </div>
+        <div class="form-check">
+          <input class="form-check-label" type="checkbox" name="majeur" formControlName="leMajeur">
+          <label>Majorite</label>
+        </div>
+        <button type="submit" [disabled]="monFormulaire.invalid">Envoyer</button>
+      </form>
+      <hr/>
+    </div>
+  </div>
+</div>

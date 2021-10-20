@@ -1,0 +1,41 @@
+<div class="container">
+
+  <h2>Liste des pokemons:</h2>
+
+  <hr/>
+
+  <div class="columns">
+      <div class="column is-one-third">
+        <p>{{ comptage }} pokemons sont in the game</p>
+        <p *ngIf="pokemonSelectionne">Le pokemon selectionne est : {{ pokemonSelectionne.nom }}</p>
+      </div>
+  </div>
+
+  <div class="columns">
+    <div class="column is-two-third">
+      <form method="post">
+        <div class="field has-addons">
+          <div class="control has-icons-left">
+            <input type="text" class="input is-small" name="pokemonRecherche" [(ngModel)]="formRecherchePokemon.nom" placeholder="Nom du pokemon a chercher" (keyup)="recherchePokemon(formRecherchePokemon.nom)">
+            <!-- <span class="icon is-small is-left"><fa-icon [icon]="faOptinMonster"></fa-icon></span> -->
+          </div>
+          <div class="control">
+            <a class="button is-primary is-small" (click)="recherchePokemon(formRecherchePokemon.nom)">Rechercher</a>
+          </div>
+          <div class="control">
+            <a class="button is-light is-small" (click)="annulerRecherche()">Annuler</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="pokemons.length<1">Aucun pokemon trouve</div>
+  <div class="columns is-multiline">
+    <ul class="menu-list column is-one-third" *ngFor="let pokemon of pokemons">
+      <li>
+        <app-pokemon [pokemon]="pokemon" (evnt)="pokemonSelectionne=$event"></app-pokemon>
+      </li>
+    </ul>
+  </div>
+
+</div>
