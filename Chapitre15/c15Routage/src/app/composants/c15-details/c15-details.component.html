@@ -15,9 +15,4 @@
   <router-outlet style="text-align:center"></router-outlet>
 </div>
 <hr/>
-<div style="text-align:center">
-  <ul *ngFor="let techno of technologies">
-    <li><a (click)="selectionTechno(techno)">{{techno.id}} - {{techno.nom}}</a></li>
-  </ul>
-</div>
-<hr/>
+<p style="font:bold;text-align:center;border-style:double">L'id passee en parametre est {{ idTechSelect }}</p>
