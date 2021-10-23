@@ -11,13 +11,19 @@
   <!-- Routes Angular -->
   <a routerLink="/xyz">Deuxieme composant</a>
 </div>
-<div style="text-align:center">
-  <router-outlet style="text-align:center"></router-outlet>
-</div>
 <hr/>
 <div style="text-align:center">
   <ul *ngFor="let techno of technologies">
-    <li><a (click)="selectionTechno(techno)">{{techno.id}} - {{techno.nom}}</a></li>
+    <li>
+      <a (click)="selectionTechno(techno)">{{techno.id}} - {{techno.nom}}</a><br/>
+      <a [routerLink]="[techno.id]">Voir</a> |
+      <a [routerLink]="['suppr',techno.id]">Supprimer</a> |
+      <a [routerLink]="['maj',techno.id]">Mettre a jour</a>
+    </li>
   </ul>
+  <a [routerLink]="['ajout']">Ajouter une techno</a>
 </div>
 <hr/>
+<div style="text-align:center">
+  <router-outlet style="text-align:center"></router-outlet>
+</div>
