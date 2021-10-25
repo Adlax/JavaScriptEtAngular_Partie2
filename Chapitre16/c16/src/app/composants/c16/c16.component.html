@@ -1,0 +1,59 @@
+<hr/>
+
+<div class="container text-center">
+  <h2>Exemple de promesses</h2>
+  <div class="row justify-content-center">
+    <ul>
+      <li>
+        <p>Version simple : </p>
+        <button (click)="surClick()">Appel la promesse</button>
+        <p>{{ message | async }}</p>
+      </li>
+      <li>
+        <p>Version plus evoluee avec callback : </p>
+        <button class="btn btn-primary" type="button" (click)="appelDeLaPromesse()">
+          <!-- <span [ngClass]="clique ? 'spinner-border' : ''; clique ? 'spinner-border-sm' : '';" role="status" aria-hidden="true"></span> -->
+          <span [ngClass]=" clique ? 'spinner-border' : '' " role="status" aria-hidden="true"></span>
+          {{ message2 }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container text-center">
+  <h2>Exemple d'obserables</h2>
+  <div class="row justify-content-center">
+    <ul>
+      <li>
+        <p>Version simple : </p>
+        <button (click)="clickObs1()">Souscription a l'observable</button>
+        <p>{{ compteurObs1 }} secs</p>
+      </li>
+      <!-- <li>
+        <p>Version plus evoluee avec pipe : </p>
+        <button class="btn btn-primary" type="button" (click)="clickObs2()">
+          <!-- <span [ngClass]="clique ? 'spinner-border' : ''; clique ? 'spinner-border-sm' : '';" role="status" aria-hidden="true"></span> -->
+          <span [ngClass]=" clique ? 'spinner-border' : '' " role="status" aria-hidden="true"></span>
+          {{ compteurObs2 }}
+        <!-- </button>
+      </li>  -->
+      -->
+    </ul>
+  </div>
+</div>
+
+<div class="container text-center">
+  <h2>Exemple de connection Http</h2>
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <input type="text" class="form-control form-control-sm" placeholder="un prenom" #lePrenom>
+      <button (click)="rechercheAPI(lePrenom.value)" class="btn btn-primary btn-sm">Recherche</button>
+    </div>
+  </div>
+  <div class="alert-secondary">
+    <p>{{ data | json }}</p>
+  </div>
+</div>
+
+<hr/>
