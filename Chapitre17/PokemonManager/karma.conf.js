@@ -22,37 +22,15 @@ module.exports = function (config) {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
     },
     jasmineHtmlReporter: {
-      suppressAll: true, // removes the duplicated traces
-      thresholds: {
-        statements: 90,
-        lines: 90,
-        branches: 90,
-        functions: 90
-      }
-    },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/c17'),
-      reports: ['html','lcovonly','text-summary'],
-      thresholds: {
-        statements: 90,
-        lines: 90,
-        branches: 90,
-        functions: 90
-      }
+      suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/c17'),
+      dir: require('path').join(__dirname, './coverage/PokemonManager'),
       subdir: '.',
       reporters: [
         { type: 'html' },
         { type: 'text-summary' }
-      ],
-      thresholds: {
-        statements: 90,
-        lines: 90,
-        branches: 90,
-        functions: 90
-      }
+      ]
     },
     reporters: ['progress', 'kjhtml'],
     port: 9876,
