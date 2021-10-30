@@ -1,0 +1,7 @@
+<div>
+  <ul *ngFor="let jedi of jedis" id="liste">
+    <li>{{ jedi }}</li>
+  </ul>
+  <input type="text" name="prenom" id="prenom" #prenom>
+  <button id="bouton" (click)="surClick(prenom.value)">Ajout jedi</button>
+</div>
